@@ -1,0 +1,16 @@
+:root{
+    color: black;
+    background-color: #F2F3F5;
+}
+
+.pageContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+img{
+    display: flex;
+    width: 50vw;
+    height: auto;
+}
