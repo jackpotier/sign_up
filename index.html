@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up | The Odin Project</title>
     <link rel="stylesheet" href="style.css">
-    <script defer>
-        
-    </script>
+    <script src="validation.js" defer></script>
 </head>
 <body>
     <div class="pageContainer">
@@ -17,35 +15,35 @@
             <div id="preForm" class="standardFont">
                 This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams. Sign up <em>now</em> to get started.<br>You <em>know</em> you want to.
             </div>
-            <form action="" method="post" class="submissionForm">
+            <form name="signUp" action="" method="post" class="submissionForm">
                     <div id="whiteSection">
                         <legend class="standardFont" id="legendText"><strong>Let's do this!</strong></legend>
-                        <div class="formSection">
+                        <div class="formSection" id="firstName">
                             <label for="firstName">First Name</label>
                             <input type="text" name="firstName" required>
                         </div>
-                        <div class="formSection">
+                        <div class="formSection" id="lastName">
                             <label for="lastName">Last Name</label>
                             <input type="text" name="lastName" required>
                         </div>
-                        <div class="formSection">
+                        <div class="formSection" id="email">
                             <label for="email">Email</label>
                             <input type="email" name="email" required>
                         </div>
-                        <div class="formSection">
+                        <div class="formSection" id="phoneNumber">
                             <label for="phoneNumber">Phone Number</label>
                             <input type="number" name="phoneNumber" required>
                         </div>
-                        <div class="formSection">
+                        <div class="formSection" id="password">
                             <label for="password">Password</label>
                             <input type="password" name="password" required>
                         </div>
-                        <div class="formSection">
+                        <div class="formSection" id="passwordCheck">
                             <label for="passwordCheck">Confirm Password</label>
                             <input type="password" name="passwordCheck" required>
                         </div>
                     </div>
-                <button type="submit">Create Account</button>
+                <button type="submit" id="signUpButton" onclick="validate()">Create Account</button>
             </form>
             <div class="postForm">Already have an account? <a href="https://www.youtube.com">Log In</a></div>
         </div>
