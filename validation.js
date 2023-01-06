@@ -30,13 +30,11 @@ function inputAllFields(){
                 error.textContent = "Please answer this field";
                 error.setAttribute("class","errorMessage");
                 fieldSections[i].appendChild(error);
-                console.log(fieldNames[i]);
             }
         }
         else {
             fieldNames[i].style.borderColor = "#E5E6E8";
-            let errorRemove = fieldSections[i].querySelector(".errorMessage");
-            fieldSections[i].removeChild(errorRemove);
+            fieldSections[i].removeChild(fieldSections[i].lastChild);
             console.log(fieldNames[i]);
         }
     }
