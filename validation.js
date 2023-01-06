@@ -17,67 +17,33 @@ let passwordCheckSection = document.querySelector("#passwordCheck");
 let fieldNames = [firstName,lastName,email,phoneNumber,password,passwordCheck];
 let fieldSections = [firstNameSection,lastNameSection,emailSection,phoneNumberSection,passwordSection,passwordCheckSection];
 
+//Set a counter for the function inputAllFields() for the removal of prior error messages
+counter = 0;
 
-//Create error message for fields without an input
-let error = document.createElement("div");
-error.textContent = "Please answer this field";
-error.setAttribute("class","errorMessage");
+//Function to check all fields have an input
+function inputAllFields(){
+    for (let i=0;i<6;i++){
+        if (fieldNames[i].value == "") {
+            if (fieldSections[i].querySelectorAll('.errorMessage').length<1){
+                fieldNames[i].style.borderColor = "#ff8888";
+                let error = document.createElement("div");
+                error.textContent = "Please answer this field";
+                error.setAttribute("class","errorMessage");
+                fieldSections[i].appendChild(error);
+                console.log(fieldNames[i]);
+            }
+        }
+        else {
+            fieldNames[i].style.borderColor = "#E5E6E8";
+            let errorRemove = fieldSections[i].querySelector(".errorMessage");
+            fieldSections[i].removeChild(errorRemove);
+            console.log(fieldNames[i]);
+        }
+    }
+    counter+=1;
+}
 
-//When sign up button is pressed, this function will run to validate all inputs
+//When sign up button is pressed, this function will run all validation functions
 function validate(){
-    //Check if all fields have an input
-    if (firstName.value == "") {
-        firstName.style.borderColor = "#ff8888";
-        firstNameSection.appendChild(error);
-        return false;
-    }
-    else {
-        firstName.style.borderColor = "";
-        firstNameSection.removeChild(error);
-    }
-    if (lastName.value == "") {
-        lastName.style.borderColor = "#ff8888";
-        lastNameSection.appendChild(error);
-        return false;
-    }
-    else {
-        lastName.style.borderColor = "";
-        lastNameSection.removeChild(error);
-    }
-    if (email.value == "") {
-        email.style.borderColor = "#ff8888";
-        emailSection.appendChild(error);
-        return false;
-    }
-    else {
-        email.style.borderColor = "";
-        emailSection.removeChild(error);
-    }
-    if (phoneNumber.value == "") {
-        phoneNumber.style.borderColor = "#ff8888";
-        phoneNumberSection.appendChild(error);
-        return false;
-    }
-    else {
-        phoneNumber.style.borderColor = "";
-        phoneNumberSection.removeChild(error);
-    }
-    if (password.value == "") {
-        password.style.borderColor = "#ff8888";
-        passwordSection.appendChild(error);
-        return false;
-    }
-    else {
-        password.style.borderColor = "";
-        passwordSection.removeChild(error);
-    }
-    if (passwordCheck.value == "") {
-        passwordCheck.style.borderColor = "#ff8888";
-        passwordCheckSection.appendChild(error);
-        return false;
-    }
-    else {
-        passwordCheck.style.borderColor = "";
-        passwordCheckSection.removeChild(error);
-    }
+    inputAllFields();
 }
