@@ -17,8 +17,6 @@ let passwordCheckSection = document.querySelector("#passwordCheck");
 let fieldNames = [firstName,lastName,email,phoneNumber,password,passwordCheck];
 let fieldSections = [firstNameSection,lastNameSection,emailSection,phoneNumberSection,passwordSection,passwordCheckSection];
 
-//Set a counter for the function inputAllFields() for the removal of prior error messages
-counter = 0;
 
 //Function to check all fields have an input
 function inputAllFields(){
@@ -38,7 +36,6 @@ function inputAllFields(){
             console.log(fieldNames[i]);
         }
     }
-    counter+=1;
 }
 
 //When sign up button is pressed, this function will run all validation functions
