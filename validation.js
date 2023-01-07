@@ -41,26 +41,14 @@ function inputAllFields(){
                 fieldSections[i].removeChild(fieldSections[i].children[2]);
             }
             else if(fieldSections.childElementCount == 2){
-                
+
             }
         }
     }
 }
 
-function errorCheck(){
-    let errorCounter=0;
-    for (let i = 0; i < form[0].childNodes.length; i++) {
-        if (form[0].childNodes[i].className == "errorMessage") {
-          errorCounter+=1
-        }        
-    }
-    if (errorCounter==0){
-
-    }
-}
 
 //When sign up button is pressed, this function will run all validation functions
 function validate(){
     inputAllFields();
-    errorCheck();
 }
