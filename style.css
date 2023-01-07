@@ -25,26 +25,32 @@ time, mark, audio, video {
     margin: 0px;
     padding: 0px;
     border: 0px;
+    font-family: "Open Sans";
+    --content-width: 50vw;
 }
 
 .pageContainer{
     height: 100vh;
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
     align-items: center;
 }
 
 img{
     display: flex;
-    width: auto;
-    height: 90vh;
-    margin-left: 5vw;
+    width: 40vw;
+    height: auto;
     margin-right:0px;
     border-radius: 20px;
 }
 
+.content {
+    width: var(--content-width);
+}
+
 .standardFont {
-    
+    font-size: large;
 }
 
 #whiteSection {
@@ -52,7 +58,7 @@ img{
     display: grid;
     grid-template-columns: auto auto;
     height: 240px;
-    width: 50vw;
+    width: var(--content-width);
     border-radius: 20px;
 }
 
@@ -79,6 +85,8 @@ input {
     border-radius: 5px;
     border-color: #E5E6E8;
     border-style: solid;
+    width: 150px;
+    height: 75px;
 }
 
 input:hover{
