@@ -28,7 +28,6 @@ function inputAllFields(){
                 let error = document.createElement("div");
                 error.textContent = "Please answer this field";
                 error.setAttribute("class","errorMessage");
-                error.setAttribute("id",i+"error")
                 fieldSections[i].appendChild(error);
                 return false
             }
@@ -41,14 +40,32 @@ function inputAllFields(){
                 fieldSections[i].removeChild(fieldSections[i].children[2]);
             }
             else if(fieldSections.childElementCount == 2){
-
+                return true
             }
         }
     }
 }
 
 
+//Function to check passwords are matching
+function passwordMatch(){
+    if (password.value !== passwordCheck.value){
+        password.style.borderColor = "#ff8888";
+        passwordCheck.style.borderColor = "#ff8888";
+        let passError = document.createElement("div");
+        passError.textContent = "Please answer this field";
+        passError.setAttribute("class","errorMessage");
+        password.appendChild(passError);
+        passwordCheck.appendChild(passError);
+        return false
+    }
+    else if (password.value == passwordCheck.value){
+        return true
+    }
+}
+
 //When sign up button is pressed, this function will run all validation functions
 function validate(){
     inputAllFields();
+    console.log(password.value, passwordCheck.value);
 }
