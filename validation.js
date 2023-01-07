@@ -19,6 +19,32 @@ let fieldNames = [firstName,lastName,email,phoneNumber,password,passwordCheck];
 let fieldSections = [firstNameSection,lastNameSection,emailSection,phoneNumberSection,passwordSection,passwordCheckSection];
 
 
+//Function to check passwords are matching
+function passwordMatch(){
+    if (password.value !== passwordCheck.value){
+        if (passwordCheckSection.childElementCount<3){
+            passwordCheck.style.borderColor = "#ff8888";
+            let passError = document.createElement("div");
+            passError.textContent = "Passwords do not match";
+            passError.setAttribute("class","errorMessage");
+            passwordCheckSection.appendChild(passError);
+            return false;
+        }
+        else {
+            return false;
+        }
+    }
+    else if (password.value == passwordCheck.value){
+        passwordCheck.style.borderColor = "#E5E6E8";
+        passwordCheckSection.removeChild(passwordCheckSection.children[2]);
+        var elements = passwordCheckSection.getElementsByClassName("errorMessage");
+        while (elements[0]) {
+            elements[0].parentNode.removeChild(elements[0]);
+        }
+    }
+}
+
+
 //Function to check all fields have an input
 function inputAllFields(){
     for (let i=0;i<6;i++){
@@ -29,7 +55,7 @@ function inputAllFields(){
                 error.textContent = "Please answer this field";
                 error.setAttribute("class","errorMessage");
                 fieldSections[i].appendChild(error);
-                return false
+                return false;
             }
         }
         else {
@@ -39,33 +65,18 @@ function inputAllFields(){
                 fieldNames[i].style.borderColor = "#E5E6E8";
                 fieldSections[i].removeChild(fieldSections[i].children[2]);
             }
-            else if(fieldSections.childElementCount == 2){
-                return true
-            }
         }
     }
 }
 
 
-//Function to check passwords are matching
-function passwordMatch(){
-    if (password.value !== passwordCheck.value){
-        password.style.borderColor = "#ff8888";
-        passwordCheck.style.borderColor = "#ff8888";
-        let passError = document.createElement("div");
-        passError.textContent = "Please answer this field";
-        passError.setAttribute("class","errorMessage");
-        password.appendChild(passError);
-        passwordCheck.appendChild(passError);
-        return false
-    }
-    else if (password.value == passwordCheck.value){
-        return true
-    }
-}
-
 //When sign up button is pressed, this function will run all validation functions
 function validate(){
     inputAllFields();
-    console.log(password.value, passwordCheck.value);
+    passwordMatch();
+    for (let i=0; i<6; i++){
+        if (fieldSections[i].querySelectorAll('.errorMessage').length>0){
+            return false
+        }
+    }
 }
