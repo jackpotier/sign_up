@@ -49,15 +49,26 @@ img{
     width: var(--content-width);
 }
 
-.standardFont {
-    font-size: large;
+#preForm {
+    padding-bottom: 10px;
+}
+
+.preFormText{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+em {
+    font-style: italic;
 }
 
 #whiteSection {
     background-color: white;
     display: grid;
     grid-template-columns: auto auto;
-    height: 240px;
+    height: 270px;
     width: var(--content-width);
     border-radius: 20px;
 }
@@ -78,15 +89,20 @@ img{
     margin-left: 15px;
     margin-top: 10px;
     font-weight: bold;
-    font-size: large;
+    font-size: 22px;
+}
+
+label {
+    font-size: 20px;
 }
 
 input {
     border-radius: 5px;
     border-color: #E5E6E8;
     border-style: solid;
-    width: 150px;
-    height: 75px;
+    width: 175px;
+    height: 90px;
+    font-size: 16px;
 }
 
 input:hover{
@@ -100,12 +116,14 @@ input:hover{
 }
 
 button {
-    margin: 10px;
+    margin: 15px;
     border-color: #aaaaaa;
     background-color: #aaaaaa;
     border-style: solid;
     border-width: 2px;
     border-radius: 5px;
+    height: 25px;
+    font-size: 16px;
 }
 
 button:hover{
