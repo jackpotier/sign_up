@@ -61,7 +61,7 @@ function inputAllFields(){
         else {
             console.log(fieldSections[i].childElementCount);
             console.log(fieldSections[i]);
-            if (fieldSections[i].childElementCount == 3){
+            if (fieldSections[i].childElementCount >= 3){
                 fieldNames[i].style.borderColor = "#E5E6E8";
                 fieldSections[i].removeChild(fieldSections[i].children[2]);
             }
@@ -77,6 +77,7 @@ function emailCheck(){
     console.log(emailChar);
     if (emailChar.includes('@')){
         if (emailChar[emailChar.length - 1] == "."){
+            email.style.borderColor = "#ff8888";
             let error = document.createElement("div");
             error.textContent = "Please enter a valid email";
             error.setAttribute("class","errorMessage");
@@ -84,17 +85,18 @@ function emailCheck(){
             return false;
         }
         else {
-            if (emailSection.childElementCount == 3){
+            if (emailSection.childElementCount >= 3){
                 email.style.borderColor = "#E5E6E8";
                 emailSection.removeChild(emailSection.children[2]);
             }
         }
     }
     else {
-        if (emailSection.childElementCount == 3){
+        if (emailSection.childElementCount >= 3){
             email.style.borderColor = "#E5E6E8";
             emailSection.removeChild(emailSection.children[2]);
         }
+        email.style.borderColor = "#ff8888";
         let error = document.createElement("div");
         error.textContent = "Please enter a valid email";
         error.setAttribute("class","errorMessage");
