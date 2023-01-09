@@ -62,13 +62,14 @@ img{
 
 em {
     font-style: italic;
+    font-weight: bolder;
 }
 
 #whiteSection {
     background-color: white;
     display: grid;
     grid-template-columns: auto auto;
-    height: 270px;
+    height: 280px;
     width: var(--content-width);
     border-radius: 20px;
 }
@@ -79,6 +80,7 @@ em {
     justify-content: flex-start;
     align-items: flex-start;
     margin: 15px;
+    padding-bottom: 15px;
     margin-bottom: 25px;
     max-height: 25px;
     min-height: 25px;
@@ -117,6 +119,7 @@ input:hover{
 
 button {
     margin: 15px;
+    margin-top: 20px;
     border-color: #aaaaaa;
     background-color: #aaaaaa;
     border-style: solid;
@@ -129,4 +132,9 @@ button {
 button:hover{
     border-color: #888888;
     box-shadow: 2px 2px 8px grey;
+}
+
+.postForm {
+    margin-left: 15px;
+    font-size: 18px;
 }
