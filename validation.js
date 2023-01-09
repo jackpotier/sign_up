@@ -75,8 +75,28 @@ function emailCheck(){
     let emailString = email.value;
     let emailChar = emailString.split("");
     console.log(emailChar);
-    if (emailChar.includes('@')){
-        if (emailChar[emailChar.length - 1] == "."){
+    if (emailChar.length > 0){
+        if (emailChar.includes('@')){
+            if (emailChar[emailChar.length - 1] == "."){
+                email.style.borderColor = "#ff8888";
+                let error = document.createElement("div");
+                error.textContent = "Please enter a valid email";
+                error.setAttribute("class","errorMessage");
+                emailSection.appendChild(error);
+                return false;
+            }
+            else {
+                if (emailSection.childElementCount >= 3){
+                    email.style.borderColor = "#E5E6E8";
+                    emailSection.removeChild(emailSection.children[2]);
+                }
+            }
+        }
+        else {
+            if (emailSection.childElementCount >= 3){
+                email.style.borderColor = "#E5E6E8";
+                emailSection.removeChild(emailSection.children[2]);
+            }
             email.style.borderColor = "#ff8888";
             let error = document.createElement("div");
             error.textContent = "Please enter a valid email";
@@ -84,24 +104,6 @@ function emailCheck(){
             emailSection.appendChild(error);
             return false;
         }
-        else {
-            if (emailSection.childElementCount >= 3){
-                email.style.borderColor = "#E5E6E8";
-                emailSection.removeChild(emailSection.children[2]);
-            }
-        }
-    }
-    else {
-        if (emailSection.childElementCount >= 3){
-            email.style.borderColor = "#E5E6E8";
-            emailSection.removeChild(emailSection.children[2]);
-        }
-        email.style.borderColor = "#ff8888";
-        let error = document.createElement("div");
-        error.textContent = "Please enter a valid email";
-        error.setAttribute("class","errorMessage");
-        emailSection.appendChild(error);
-        return false;
     }
 }
 
