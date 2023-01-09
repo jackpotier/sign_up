@@ -70,9 +70,44 @@ function inputAllFields(){
 }
 
 
+//Function to ensure email is correct
+function emailCheck(){
+    let emailString = email.value;
+    let emailChar = emailString.split("");
+    console.log(emailChar);
+    if (emailChar.includes('@')){
+        if (emailChar[emailChar.length - 1] == "."){
+            let error = document.createElement("div");
+            error.textContent = "Please enter a valid email";
+            error.setAttribute("class","errorMessage");
+            emailSection.appendChild(error);
+            return false;
+        }
+        else {
+            if (emailSection.childElementCount == 3){
+                email.style.borderColor = "#E5E6E8";
+                emailSection.removeChild(emailSection.children[2]);
+            }
+        }
+    }
+    else {
+        if (emailSection.childElementCount == 3){
+            email.style.borderColor = "#E5E6E8";
+            emailSection.removeChild(emailSection.children[2]);
+        }
+        let error = document.createElement("div");
+        error.textContent = "Please enter a valid email";
+        error.setAttribute("class","errorMessage");
+        emailSection.appendChild(error);
+        return false;
+    }
+}
+
+
 //When sign up button is pressed, this function will run all validation functions
 function validate(){
     inputAllFields();
+    emailCheck();
     passwordMatch();
     for (let i=0; i<6; i++){
         if (fieldSections[i].querySelectorAll('.errorMessage').length>0){
